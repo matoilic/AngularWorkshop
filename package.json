@@ -1,0 +1,21 @@
+{
+  "name": "angular-workshop",
+  "version": "0.0.1",
+  "description": "ti&m AngularJS Workshop",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matoilic/AngularWorkshop.git"
+  },
+  "keywords": [
+    "angular",
+    "workshop"
+  ],
+  "author": "Mato Ilic",
+  "license": "MIT",
+  "devDependencies": {
+    "connect-livereload": "^0.5.3",
+    "gulp": "^3.8.11",
+    "gulp-connect": "^2.2.0"
+  }
+}
