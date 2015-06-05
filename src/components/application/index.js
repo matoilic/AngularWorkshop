@@ -1,7 +1,6 @@
 angular
-    .module('AddressBook', [
-        'ngResource',
-        'ui.router'
+    .module('Application', [
+        'ContactsState'
     ])
     .config(['$locationProvider', '$urlRouterProvider', '$httpProvider', function($locationProvider, $urlRouterProvider, $httpProvider) {
         $httpProvider.useApplyAsync(true);

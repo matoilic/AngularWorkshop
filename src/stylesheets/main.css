@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    padding: 20px;
+}
+
+.main {
+    padding: 20px;
+}
+
+.page-header {
+    background: #fff url("../images/ti8m-logo.svg") no-repeat 20px 0;
+    background-size: auto 90%;
+    border-bottom: 1px solid rgb(0, 158, 140);
+    height: 60px;
+}

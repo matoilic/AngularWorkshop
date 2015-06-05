@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+
     <title>Address Book - ti&amp;m Angular Workshop</title>
+
+    <link href="//fonts.googleapis.com/css?family=Roboto&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
     <link rel="stylesheet" href="src/stylesheets/main.css">
   </head>
   <body>
+    <header class="page-header"></header>
+
     <div class="main" id="addressBookApp" ui-view="main">
     </div>
 
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="src/app.js"></script>
-    <script src="src/services/ContactsService.js"></script>
-    <script src="src/states/contacts/ContactsStateController.js"></script>
-    <script src="src/states/contacts/ContactsState.js"></script>
-    <script src="src/main.js"></script>
+    <footer class="page-footer"></footer>
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-resource/angular-resource.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <script src="src/components/address-book/index.js"></script>
+    <script src="src/components/address-book/services/contacts-service.js"></script>
+
+    <script src="src/components/contacts-state/index.js"></script>
+    <script src="src/components/contacts-state/contacts-state-controller.js"></script>
+    <script src="src/components/contacts-state/contacts-state.js"></script>
+
+    <script src="src/components/application/index.js"></script>
+
+    <script src="src/index.js"></script>
   </body>
 </html>
