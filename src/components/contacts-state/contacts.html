@@ -1,11 +1,23 @@
 <div class="contacts">
     <h1>Contacts</h1>
-    <ul>
-        <li ng-repeat="contact in contactsController.contacts">
-            <a>
-                {{ ::contact.first_name }}
-                {{ ::contact.last_name }}
-            </a>
+
+    <p class="search-box">
+        <input type="text" placeholder="Search..." ng-model="contactsController.search" />
+    </p>
+    <ul class="contacts-list">
+        <li class="card" ng-repeat="contact in filtered = (contactsController.contacts |filter:contactsController.search)">
+            <h3>
+                {{ ::contact.first_name }} {{ ::contact.last_name }}
+            </h3>
+            <p>
+                {{ ::contact.phone }}<br>
+                <a href="mailto:{{ ::contact.email }}">{{ ::contact.email }}</a><br>
+
+            </p>
         </li>
     </ul>
+    <p ng-if="filtered.length == 0">
+        No matches.
+    </p>
+
 </div>

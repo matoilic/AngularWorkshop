@@ -4,7 +4,22 @@
 
 body {
     font-family: Roboto, sans-serif;
-    padding: 20px;
+
+}
+
+h1, 
+h2,
+h3 {
+    font-weight: 700;
+}
+
+input {
+    padding: .3em;
+    font-weight: 400;
+}
+
+a {
+    color: rgb(28, 83, 177);
 }
 
 .main {
@@ -12,8 +27,44 @@ body {
 }
 
 .page-header {
-    background: #fff url("../images/ti8m-logo.svg") no-repeat 20px 0;
-    background-size: auto 90%;
-    border-bottom: 1px solid rgb(0, 158, 140);
-    height: 60px;
+    padding: 1em;
+    background: rgb(28, 83, 177) url("../images/ti8m-logo-white.svg") no-repeat 20px 20px;
+    background-size: auto 60px;
+
+    height: 100px;
+}
+
+.contacts-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card {
+    border-radius: 3px;
+    padding: 15px;
+    margin: 0 15px 15px 0;
+    float: left;
+    width: 30%;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+    overflow: hidden;
+}
+
+.card h3 {
+    font-size: 1em;
+    font-weight: 300;
+    margin: -15px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    background-color: rgb(0, 158, 140);
+    color: #fff;
+}
+
+.card a {
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
