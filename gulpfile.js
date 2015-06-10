@@ -8,7 +8,7 @@ var sourceFiles = [
 
 gulp.task('connect', function() {
     connect.server({
-        root: '.',
+        root: [__dirname],
         livereload: true,
         port: 8088
     });
@@ -23,5 +23,6 @@ gulp.task('reload', function() {
 gulp.task('watch', function () {
     gulp.watch(sourceFiles, ['reload']);
 });
+
 
 gulp.task('default', ['connect', 'watch']);
