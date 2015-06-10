@@ -1,4 +1,6 @@
 (function() {
+    'use strict';
+    
     function contactsRoute($stateProvider) {
         return $stateProvider
             .state('contacts', {

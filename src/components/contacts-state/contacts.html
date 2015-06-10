@@ -1,3 +1,11 @@
 <div class="contacts">
-  <h1>Contacts</h1>
+    <h1>Contacts</h1>
+    <ul>
+        <li ng-repeat="contact in contactsController.contacts">
+            <a>
+                {{ ::contact.first_name }}
+                {{ ::contact.last_name }}
+            </a>
+        </li>
+    </ul>
 </div>

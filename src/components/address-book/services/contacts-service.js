@@ -1,12 +1,13 @@
 (function() {
+    'use strict';
+
     function ContactsService($resource) {
-        
+        this.Contact = $resource('/data/contacts.json');
     }
     
     ContactsService.prototype = {
         fetchContacts: function() {
-            //TODO
-            return [];
+            return this.Contact.query();
         }
     };
     
