@@ -9,8 +9,9 @@
                     main: {
                         templateUrl: '/src/components/contacts-state/contacts.html',
                         controller: 'ContactsStateController as contactsController',
-                        resolve: {
-                            contacts: ['ContactsService', function(ContactsService) {
+                        resolve: {                             
+                            contacts: 
+                            ['ContactsService', function(ContactsService) {
                                 return ContactsService.fetchContacts();
                             }]
                         }

@@ -1,0 +1,41 @@
+<div>
+	<header>
+		<robo-hash email='::detailStateController.detail.email' width='100' height='100'></robo-hash>
+	</header>
+	<form action="#" name='detailForm' novalidate>	
+		<p>
+			<label for="">Name</label><br/>
+			<input type="text" name='firstName' ng-model="detailStateController.detail.first_name" required>
+		</p>
+		<p>
+			<div ng-show="detailForm.firstName.$error.required ||  detailForm.firstName.$error.touched">
+				<span>First Name required</span>
+			</div>
+		</p>
+
+		<p>
+			<label for="">Last name</label><br/>
+			<input type="text" name='lastName'  ng-model="detailStateController.detail.last_name" required>
+			<div ng-show="detailForm.lastName.$error.required ||  detailForm.lastName.$error.touched">
+				<span >Last name required</span>
+			</div>
+
+		</p>
+
+		<p>
+			<label for="">Email</label><br/>
+			<input type="email" name='email' ng-model="detailStateController.detail.email" required>
+			<div ng-show="detailForm.email.$error.required ||  detailForm.email.$error.touched">
+				<span >Email required</span>
+			</div>
+		</p>
+
+		<p>
+			<input type="submit" disabled="!detailForm.$valid">
+		</p>
+	</form>
+	
+	
+<br/>
+	<a ui-sref='contacts'>Back</a>
+</div>

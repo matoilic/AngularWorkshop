@@ -68,3 +68,21 @@ a {
     text-overflow: ellipsis;
 
 }
+
+
+.robo-spin{
+    animation: rotateplane 1.2s infinite linear;
+}
+
+@keyframes rotateplane {
+  0% { 
+    transform: rotateY(0deg) ;
+    -webkit-transform:  rotateY(0deg)  
+  } 50% { 
+    transform:  rotateY(-180.1deg) ;
+    -webkit-transform:  rotateY(-180.1deg) 
+  } 100% { 
+    transform:  rotateY(-180deg) ;
+    -webkit-transform:  rotateY(-180deg) ;
+  }
+}

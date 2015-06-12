@@ -6,9 +6,12 @@
     </p>
     <ul class="contacts-list">
         <li class="card" ng-repeat="contact in filtered = (contactsController.contacts |filter:contactsController.search)">
-            <h3>
+            <h3 ng-click="contactsController.detail(contact.id)">
                 {{ ::contact.first_name }} {{ ::contact.last_name }}
+
             </h3>
+            <a href="#" ui-sref='detail({ id:contact.id })'>Detail</a>
+            <robo-hash email='::contact.email' width='50' height='50'></robo-hash>
             <p>
                 {{ ::contact.phone }}<br>
                 <a href="mailto:{{ ::contact.email }}">{{ ::contact.email }}</a><br>
