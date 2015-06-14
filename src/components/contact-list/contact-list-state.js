@@ -7,8 +7,8 @@
                 url: '/contacts',
                 views: {
                     main: {
-                        templateUrl: '/src/components/contacts-state/contacts.html',
-                        controller: 'ContactsStateController as contactsController',
+                        templateUrl: '/src/components/contact-list/contact-list.html',
+                        controller: 'ContactListController as contactListController',
                         resolve: {                             
                             contacts: 
                             ['ContactsService', function(ContactsService) {
@@ -21,6 +21,6 @@
     }
     
     angular
-        .module('ContactsState')
+        .module('ContactList')
         .config(['$stateProvider', contactsRoute]);
 })();

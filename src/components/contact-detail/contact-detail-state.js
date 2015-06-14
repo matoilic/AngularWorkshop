@@ -7,8 +7,8 @@
                 url: '/detail/:id',
                 views: {
                     main: {
-                        templateUrl: '/src/components/detail-state/detail.html',
-                        controller: 'DetailStateController as detailStateController',
+                        templateUrl: '/src/components/contact-detail/contact-detail.html',
+                        controller: 'ContactDetailController as contactDetailController',
                         resolve: {
                             detail: ['ContactsService','$stateParams', function(ContactsService, $stateParams) {
                                 return ContactsService.detailContact($stateParams.id);
@@ -20,6 +20,6 @@
     }
     
     angular
-        .module('DetailState')
+        .module('ContactDetail')
         .config(['$stateProvider', detailRoute]);
 })();

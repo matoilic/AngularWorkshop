@@ -1,5 +1,5 @@
 angular
-    .module('ContactsState', [
+    .module('ContactList', [
         'ui.router',
         'AddressBook'
     ]);

@@ -3,7 +3,7 @@
 
     angular
         .module('Application', [
-            'ContactsState',
-            'DetailState'
+            'ContactList',
+            'ContactDetail'
         ]);
 }());

@@ -20,7 +20,7 @@ describe('Navigating from list do detail', function() {
         browser.waitForAngular();
         expect(browser.getCurrentUrl()).toContain('/detail/1');
 
-        var name = element(by.model('detailStateController.detail.first_name'));
+        var name = element(by.model('contactDetailController.contact.first_name'));
 		expect(name.getAttribute('value')).toBe('Ryan');
 
     });
@@ -37,7 +37,7 @@ describe('validate filter', function() {
 	});
 
 	it('filter with ryan',function(){
-		element(by.model('contactsController.search')).sendKeys('Ryan');
+		element(by.model('contactListController.search')).sendKeys('Ryan');
 		expect(browser.getCurrentUrl()).toContain('/contacts');
 
 		browser.waitForAngular();
