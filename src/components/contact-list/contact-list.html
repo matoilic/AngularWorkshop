@@ -6,8 +6,8 @@
     </p>
     <ul class="contacts-list">
         <li class="card" ng-repeat="contact in filtered = (contactListController.contacts |filter:contactListController.search)">
-            <h3 ng-click="contactListController.detail(contact.id)">
-                <robo-hash email='::contact.email' width='50' height='50'></robo-hash>
+            <h3>
+                <robo-hash email='::contact.email' width='70' height='70'></robo-hash>
                 {{ ::contact.first_name }} <br>{{ ::contact.last_name }}
             </h3>
             <p>

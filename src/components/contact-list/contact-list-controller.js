@@ -6,10 +6,6 @@
     }
 
     ContactListController.prototype = {
-    	detail: function(contactid) {
-    		console.log('contact id ' , contactid);
-
-    	}
     };
 
     angular
