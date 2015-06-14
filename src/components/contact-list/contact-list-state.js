@@ -3,8 +3,8 @@
     
     function contactsRoute($stateProvider) {
         return $stateProvider
-            .state('contacts', {
-                url: '/contacts',
+            .state('contactList', {
+                url: '/contact-list',
                 views: {
                     main: {
                         templateUrl: '/src/components/contact-list/contact-list.html',

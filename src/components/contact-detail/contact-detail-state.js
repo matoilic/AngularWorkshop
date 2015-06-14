@@ -3,7 +3,7 @@
     
     function detailRoute($stateProvider) {
         return $stateProvider
-            .state('detail', {
+            .state('contactDetail', {
                 url: '/detail/:id',
                 views: {
                     main: {

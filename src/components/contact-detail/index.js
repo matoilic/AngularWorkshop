@@ -1,7 +1,4 @@
 (function() {
-
-
-		angular.module('ContactDetail',[]);
-
-		
-})(angular);
+    'use strict';
+    angular.module('ContactDetail', ['ui.router', 'AddressBook']);
+})();

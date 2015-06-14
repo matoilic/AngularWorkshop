@@ -18,13 +18,8 @@
         /**
          * This is the default route to which the user gets redirected if no deep link was entered.
          */
-        $urlRouterProvider.otherwise('/contacts');
+        $urlRouterProvider.otherwise('/');
 
-        /**
-         * This redirects the user from / to /contacts if he uses / as direct link. It is not the same as the
-         * default route since the default route does not even asume / to be in the URL.
-         */
-        $urlRouterProvider.when('/', '/contacts');
     }
 
     angular
