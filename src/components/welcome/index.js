@@ -1,7 +1,11 @@
-(function() {
-    'use strict';
+import angular from 'angular';
+import uiRouter from 'angular-ui-router';
+import welcomeState from './welcome-state';
 
-    angular
-        .module('Welcome', ['ui.router']);
+const dependencies = [
+    uiRouter
+];
 
-})();
+export default angular
+    .module('welcome-state-component', dependencies)
+    .config(welcomeState);

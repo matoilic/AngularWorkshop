@@ -1,14 +1,10 @@
-(function() {
-    'use strict';
-    
-    function ContactListController(contacts) {
+class ContactListController {
+    constructor(contacts) {
         this.contacts = contacts;
     }
+}
 
-    ContactListController.prototype = {
-    };
-
-    angular
-        .module('ContactList')
-        .controller('ContactListController', ['contacts', ContactListController]);
-})();
+export default [
+    'contacts',
+    ContactListController
+];

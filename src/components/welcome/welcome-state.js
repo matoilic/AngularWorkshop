@@ -1,19 +1,18 @@
-(function() {
-    'use strict';
-    
-    function welcomeRoute($stateProvider) {
-        return $stateProvider
-            .state('welcome', {
-                url: '/',
-                views: {
-                    main: {
-                        templateUrl: '/src/components/welcome/welcome.html'
-                        }
-                    }
-            });
-    }
-    
-    angular
-        .module('Welcome')
-        .config(['$stateProvider', welcomeRoute]);
-})();
+import template from './welcome.html';
+
+function welcomeRoute($stateProvider) {
+    return $stateProvider
+        .state('welcome', {
+            url: '/',
+            views: {
+                main: {
+                    template: template
+                }
+            }
+        });
+}
+
+export default [
+    '$stateProvider',
+    welcomeRoute
+];

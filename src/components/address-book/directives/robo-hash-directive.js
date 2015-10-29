@@ -1,30 +1,30 @@
-(function(){
-    'use strict';
+import template from './robo-hash-directive.html';
 
-    function RoboHashDirective($window){
-        return{
-            restrict:'E',
-            replace:true,
-            scope:{
-                email:'=',
-                width:'=',
-                height:'='
-            },      
-            templateUrl:'src/components/address-book/directives/robo-hash-directive.html',
-            link:function($scope , $element , $attrs ){
-                $scope.pixelRatio = $window.devicePixelRatio || 1;
+function RoboHashDirective($window) {
+    return {
+        restrict: 'E',
+        replace: true,
+        scope: {
+            email: '=',
+            width: '=',
+            height: '='
+        },
+        template: template,
+        link: function($scope, $element) {
+            $scope.pixelRatio = $window.devicePixelRatio || 1;
 
-                $element.bind('mouseover',function(evt){
-                    $element.addClass('robo-spin');
-                }); 
+            $element.bind('mouseover', function() {
+                $element.addClass('robo-spin');
+            });
 
-                $element.bind('mouseout',function(evt){
-                    $element.removeClass('robo-spin');
-                })
-            }
+            $element.bind('mouseout', function() {
+                $element.removeClass('robo-spin');
+            });
         }
-    };
+    }
+}
 
-    angular.module('AddressBook').directive('roboHash', ['$window', RoboHashDirective]);
-
-})();
+export default [
+    '$window',
+    RoboHashDirective
+];

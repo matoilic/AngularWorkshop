@@ -1,18 +1,15 @@
-(function(){
-    'use strict';
-
-    function ContactDetailController(contact) {
+class ContactDetailController {
+    constructor(contact) {
         this.contact = contact;
-    };
-
-    ContactDetailController.prototype = {
-        updateContact: function(){
-            return false;
-        }
     }
 
-    angular.module('ContactDetail')
-        .controller('ContactDetailController', ['detail', ContactDetailController]);
+    onFormSubmit(event){
+        event.preventDefault();
+        event.stopImmediatePropagation();
+    }
+}
 
-
-})();
+export default [
+    'detail',
+    ContactDetailController
+];

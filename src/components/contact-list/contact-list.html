@@ -2,10 +2,11 @@
     <h1>Contacts</h1>
 
     <p class="search-box">
-        <input type="text" placeholder="Search..." ng-model="contactListController.search" />
+        <input type="text" placeholder="Search&hellip;" ng-model="contactListController.search" />
     </p>
+
     <ul class="contacts-list">
-        <li class="card" ng-repeat="contact in filtered = (contactListController.contacts |filter:contactListController.search)">
+        <li class="card" ng-repeat="contact in filtered = (contactListController.contacts | filter:contactListController.search)">
             <h3>
                 <robo-hash email='::contact.email' width='70' height='70'></robo-hash>
                 {{ ::contact.first_name }} <br>{{ ::contact.last_name }}
@@ -22,8 +23,8 @@
             </p>
         </li>
     </ul>
+
     <p ng-if="filtered.length == 0">
         No matches.
     </p>
-
 </div>

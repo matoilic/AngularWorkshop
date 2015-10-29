@@ -1,7 +1,11 @@
-var gulp = require('gulp'),
-    connect = require('gulp-connect'),
-    protractor = require('gulp-protractor').protractor,
-    server = require('gulp-server-livereload');
+var gulp = require('gulp');
+var connect = require('gulp-connect');
+var protractor = require('gulp-protractor').protractor;
+var server = require('gulp-server-livereload');
+var webpackDevMiddleware = require('webpack-dev-middleware');
+var webpackHotMiddleware = require('webpack-hot-middleware');
+var webpack = require('webpack');
+var webpackConfig = require('./webpack.config');
 
 var sourceFiles = [
     'index.html',
@@ -9,25 +13,23 @@ var sourceFiles = [
 ];
 
 gulp.task('connect', function() {
+    var compiler = webpack(webpackConfig);
+
     connect.server({
         root: [__dirname],
-        livereload: true,
-        port: 8088
+        livereload: false,
+        port: 8088,
+        middleware: function(connect) {
+            return [
+                connect().use(webpackDevMiddleware(compiler, {
+                    noInfo: true,
+                    publicPath: webpackConfig.output.publicPath
+                })),
+                connect().use(webpackHotMiddleware(compiler))
+            ]
+        }
     });
 });
-
-gulp.task('reload', function() {
-    gulp
-        .src(sourceFiles)
-        .pipe(connect.reload());
-});
-
-gulp.task('watch', function () {
-    gulp.watch(sourceFiles, ['reload']);
-});
-
-
-
 
 gulp.task('test' ,['testserver'], TestE2eTask);
 gulp.task('testserver',ServerTask);
@@ -37,7 +39,7 @@ function TestE2eTask(){
     console.log('test e2e ');
     return gulp.src('./src/components/**/*.spec.js')
         .pipe(protractor({
-            configFile:"protractor.conf.js",
+            configFile: 'protractor.conf.js'
             // args:['debug']
         }))
         .on('error',function(err){
@@ -56,6 +58,4 @@ function ServerTask(){
     testWebServer = gulp.src(__dirname).pipe(server());
 }
 
-
-
-gulp.task('default', ['connect', 'watch']);
+gulp.task('default', ['connect']);
