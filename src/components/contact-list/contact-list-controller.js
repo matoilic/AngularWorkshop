@@ -1,6 +1,6 @@
 class ContactListController {
     constructor(contacts) {
-        this.contacts = contacts;
+        this._contacts = contacts;
     }
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="Application">
+<html ng-app="Application" strict-di="true">
   <head>
     <meta charset="utf-8">
 
@@ -7,12 +7,14 @@
 
     <link href='//fonts.googleapis.com/css?family=Roboto:300,700,400' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" href="node_modules/vex-js/css/vex.css">
+    <link rel="stylesheet" href="node_modules/vex-js/css/vex-theme-plain.css">
     <link rel="stylesheet" href="src/stylesheets/main.css">
   </head>
   <body>
     <header class="page-header"></header>
 
-    <div class="main" id="addressBookApp" ui-view="main">
+    <div class="main" id="addressBookApp" ui-view="application">
     </div>
 
     <footer class="page-footer"></footer>

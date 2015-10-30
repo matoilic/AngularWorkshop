@@ -1,4 +1,4 @@
-function applicationConfig($locationProvider, $urlRouterProvider, $httpProvider) {
+function applicationConfig($locationProvider, $urlRouterProvider, $httpProvider, httpProvider) {
     /**
      * Configure $http service to combine processing of multiple http responses received at around the same time
      * via $rootScope.$applyAsync. This can result in significant performance improvement for applications
@@ -15,13 +15,15 @@ function applicationConfig($locationProvider, $urlRouterProvider, $httpProvider)
     /**
      * This is the default route to which the user gets redirected if no deep link was entered.
      */
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/welcome');
 
+    httpProvider.setBaseUrl('https://nameless-sierra-8010.herokuapp.com/api/');
 }
 
 export default [
     '$locationProvider',
     '$urlRouterProvider',
     '$httpProvider',
+    'httpProvider',
     applicationConfig
 ];

@@ -1,24 +1,28 @@
 class ContactsService {
-    constructor($q, $http) {
-        this.contacts = null;
-        this.$q = $q;
-        this.$http = $http;
+    constructor($q, http) {
+        this._contacts = null;
+        this._q = $q;
+        this._http = http;
     }
 
     fetchContacts() {
-        if(!this.contacts) {
-            return this.$http.get('/data/contacts.json').then((response) => {
-                this.contacts = response.data;
+        if(!this._contacts) {
+            return this._http.get('/Contacts').then((response) => {
+                this._contacts = response.data;
 
-                return this.contacts;
+                return this._contacts;
             });
         }
 
-        return this.$q.when(this.contacts);
+        return this._q.when(this._contacts);
     }
 
     detailContact(contactId){
         return this.fetchContacts().then((contacts) => this._findById(contacts , contactId));
+    }
+
+    set baseUrl(url) {
+        this._baseUrl = url;
     }
 
     _findById(contacts , contactId){
@@ -44,6 +48,6 @@ class ContactsService {
 
 export default [
     '$q',
-    '$http',
+    'http',
     ContactsService
 ];

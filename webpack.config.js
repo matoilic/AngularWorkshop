@@ -9,7 +9,11 @@ module.exports = {
     resolve: {
         root: [
             path.join(__dirname, 'src')
-        ]
+        ],
+        alias: {
+            'vex-dialog': path.resolve('node_modules/vex-js/js/vex.dialog.js'),
+            vex: 'vex-js'
+        }
     },
     output: {
         path: path.join(__dirname, 'build'),
@@ -22,11 +26,12 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.html$/, loader: 'raw'
+                test: /\.html$/,
+                loader: 'raw'
             },
             {
-                loader: 'babel-loader',
                 test: /\.js$/,
+                loader: 'babel-loader',
                 exclude: /node_modules/
             }
         ]

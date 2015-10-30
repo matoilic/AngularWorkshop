@@ -2,8 +2,8 @@ import template from './contact-list.html';
 
 function contactsRoute($stateProvider) {
     return $stateProvider
-        .state('contactList', {
-            url: '/contact-list',
+        .state('app.contactList', {
+            url: 'contact-list',
             views: {
                 main: {
                     template: template,

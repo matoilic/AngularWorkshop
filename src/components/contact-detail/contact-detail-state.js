@@ -2,8 +2,8 @@ import template from './contact-detail.html';
 
 function detailRoute($stateProvider) {
     return $stateProvider
-        .state('contactDetail', {
-            url: '/detail/:id',
+        .state('app.contactDetail', {
+            url: 'detail/:id',
             views: {
                 main: {
                     template: template,

@@ -6,7 +6,7 @@
     </p>
 
     <ul class="contacts-list">
-        <li class="card" ng-repeat="contact in filtered = (contactListController.contacts | filter:contactListController.search)">
+        <li class="card" ng-repeat="contact in filtered = (contactListController._contacts | filter:contactListController.search)">
             <h3>
                 <robo-hash email='::contact.email' width='70' height='70'></robo-hash>
                 {{ ::contact.first_name }} <br>{{ ::contact.last_name }}
@@ -19,7 +19,7 @@
 
             </p>
             <p class="footer">
-                <a href="#" ui-sref='contactDetail({ id:contact.id })'>Detail</a>
+                <a href="#" ui-sref="app.contactDetail({ id:contact.id })">Detail</a>
             </p>
         </li>
     </ul>

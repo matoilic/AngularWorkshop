@@ -2,8 +2,8 @@ import template from './welcome.html';
 
 function welcomeRoute($stateProvider) {
     return $stateProvider
-        .state('welcome', {
-            url: '/',
+        .state('app.welcome', {
+            url: 'welcome',
             views: {
                 main: {
                     template: template
