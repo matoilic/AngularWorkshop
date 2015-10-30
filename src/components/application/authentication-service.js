@@ -23,6 +23,7 @@ class AuthenticationService {
 
                 this._fetchAuthToken(email, password)
                     .then((token) => {
+                        this._http.addStaticHeader('Authorization', token);
                         this._authDeferred.resolve(token);
                         vex.close($(event.target).parent().data().vex.id);
                     })
@@ -37,7 +38,7 @@ class AuthenticationService {
     }
 
     _fetchAuthToken(email, password) {
-        return this._http.post('/Users/login', {email, password});
+        return this._http.post('/Users/login', {email, password}).then((response) => response.data.id);
     }
 
     _showErrorMessage() {
