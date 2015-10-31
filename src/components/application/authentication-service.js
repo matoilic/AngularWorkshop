@@ -4,13 +4,20 @@ import vex from 'vex';
 import $ from 'jquery';
 
 class AuthenticationService {
-    constructor($q, http) {
+    constructor($q, http, $cookies) {
         vex.defaultOptions.className = 'vex-theme-plain';
+        this._cookies = $cookies;
         this._http = http;
         this._authDeferred = $q.defer();
     }
 
     authenticate() {
+        let token = this._cookies.get('authToken', token);
+        if (token) {
+            this.resolveAuthentication(token);
+            return;
+        }
+
         vexDialog.open({
             message: 'Login',
             input: authenticationDialog,
@@ -23,8 +30,8 @@ class AuthenticationService {
 
                 this._fetchAuthToken(email, password)
                     .then((token) => {
-                        this._http.addStaticHeader('Authorization', token);
-                        this._authDeferred.resolve(token);
+                        this._cookies.put('authToken', token);
+                        this.resolveAuthentication(token);
                         vex.close($(event.target).parent().data().vex.id);
                     })
                     .catch(() => {
@@ -35,6 +42,11 @@ class AuthenticationService {
         });
 
         return this._authDeferred.promise;
+    }
+    
+    resolveAuthentication(token) {
+        this._http.addStaticHeader('Authorization', token);
+        this._authDeferred.resolve(token);
     }
 
     _fetchAuthToken(email, password) {
@@ -52,5 +64,6 @@ class AuthenticationService {
 export default [
     '$q',
     'http',
+    '$cookies',
     AuthenticationService
 ]

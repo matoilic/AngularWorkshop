@@ -1,4 +1,5 @@
 import angular from 'angular';
+import ngCookies from 'angular-cookies';
 import welcomeComponent from 'components/welcome/index';
 import contactListComponent from 'components/contact-list/index';
 import contactDetailComponent from 'components/contact-detail/index';
@@ -10,6 +11,7 @@ import httpProvider from './http-provider';
 import AuthenticationService from './authentication-service';
 
 const dependencies = [
+    'ngCookies',
     welcomeComponent.name,
     contactListComponent.name,
     contactDetailComponent.name
