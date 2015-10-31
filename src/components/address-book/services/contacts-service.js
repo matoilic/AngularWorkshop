@@ -21,28 +21,25 @@ class ContactsService {
         return this.fetchContacts().then((contacts) => this._findById(contacts , contactId));
     }
 
+    createOrUpdateContact(contact) {
+        let promise;
+
+        if (contact.id) {
+            promise = this._http.put(`/Contacts/${contact.id}`, contact);
+        } else {
+            promise = this._http.post('/Contacts', contact);
+        }
+        
+        return promise.then(d => d.data);
+    }
+
     set baseUrl(url) {
         this._baseUrl = url;
     }
 
     _findById(contacts , contactId){
-        let contact = null;
         contactId = parseInt(contactId , 10);
-
-        /**
-         * some only goes through the array until it finds the first match
-         */
-        contacts.some((c) => {
-            if(c.id === contactId) {
-                contact = c;
-
-                return true;
-            }
-
-            return false;
-        });
-
-        return contact;
+        return contacts.find( c => c.id === contactId );
     }
 }
 

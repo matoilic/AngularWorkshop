@@ -1,15 +1,21 @@
 class ContactDetailController {
-    constructor(contact) {
+    constructor(contact, contactsService) {
+        this._contactsService = contactsService;
         this.contact = contact;
     }
 
     onFormSubmit(event){
         event.preventDefault();
         event.stopImmediatePropagation();
+        this._contactsService.createOrUpdateContact(this.contact)
+            .then(newContact => {
+                this.contact = newContact;
+            });
     }
 }
 
 export default [
-    'detail',
+    'contact',
+    'contactsService',
     ContactDetailController
 ];

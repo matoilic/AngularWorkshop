@@ -26,6 +26,11 @@ class HttpService {
         return this._http.post(this._normalizeUrl(url), data, config);
     }
 
+    put(url, data, config = {}) {
+        config = this._configureStaticHeaders(config);
+        return this._http.put(this._normalizeUrl(url), data, config);
+    }
+
     _configureStaticHeaders(config) {
         if(!config.headers) {
             config.headers = {};
