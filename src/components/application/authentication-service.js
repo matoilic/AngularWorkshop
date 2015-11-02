@@ -12,9 +12,10 @@ class AuthenticationService {
     }
 
     authenticate() {
-        let token = this._cookies.get('authToken', token);
+        const token = this._cookies.get('authToken', token);
         if (token) {
-            this.resolveAuthentication(token);
+            this._resolveAuthentication(token);
+
             return;
         }
 
@@ -31,7 +32,7 @@ class AuthenticationService {
                 this._fetchAuthToken(email, password)
                     .then((token) => {
                         this._cookies.put('authToken', token);
-                        this.resolveAuthentication(token);
+                        this._resolveAuthentication(token);
                         vex.close($(event.target).parent().data().vex.id);
                     })
                     .catch(() => {
@@ -44,7 +45,7 @@ class AuthenticationService {
         return this._authDeferred.promise;
     }
     
-    resolveAuthentication(token) {
+    _resolveAuthentication(token) {
         this._http.addStaticHeader('Authorization', token);
         this._authDeferred.resolve(token);
     }
@@ -57,7 +58,7 @@ class AuthenticationService {
         vexDialog.alert({
             message: 'Zugangsdaten ungültig',
             callback: () => this.authenticate()
-        })
+        });
     }
 }
 
