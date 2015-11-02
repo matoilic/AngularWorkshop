@@ -1,11 +1,10 @@
 import authenticationDialog from './authentication-dialog.html';
 import vexDialog from 'vex-dialog';
-import vex from 'vex';
 import $ from 'jquery';
 
 class AuthenticationService {
     constructor($q, http, $cookies) {
-        vex.defaultOptions.className = 'vex-theme-plain';
+
         this._cookies = $cookies;
         this._http = http;
         this._authDeferred = $q.defer();

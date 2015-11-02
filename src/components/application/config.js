@@ -1,3 +1,5 @@
+import vex from 'vex';
+
 function applicationConfig($locationProvider, $urlRouterProvider, $httpProvider, httpProvider) {
     /**
      * Configure $http service to combine processing of multiple http responses received at around the same time
@@ -18,6 +20,8 @@ function applicationConfig($locationProvider, $urlRouterProvider, $httpProvider,
     $urlRouterProvider.otherwise('/welcome');
 
     httpProvider.setBaseUrl('https://nameless-sierra-8010.herokuapp.com/api/');
+
+    vex.defaultOptions.className = 'vex-theme-plain';
 }
 
 export default [
