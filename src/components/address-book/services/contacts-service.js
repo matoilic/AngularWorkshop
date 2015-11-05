@@ -39,7 +39,7 @@ class ContactsService {
 
     _findById(contacts , contactId){
         contactId = parseInt(contactId , 10);
-        return contacts.find( c => c.id === contactId );
+        return contacts.find(c => c.id === contactId);
     }
 }
 

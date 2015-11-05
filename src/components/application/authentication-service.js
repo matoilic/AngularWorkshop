@@ -1,4 +1,5 @@
 import authenticationDialog from './authentication-dialog.html';
+import vex from 'vex';
 import vexDialog from 'vex-dialog';
 import $ from 'jquery';
 
