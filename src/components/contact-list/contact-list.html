@@ -5,13 +5,13 @@
     </h1>
 
     <p class="search-box">
-        <input type="text" placeholder="Search&hellip;" ng-model="contactListController.search" />
+        <input type="text" placeholder="Search&hellip;" ng-model="contactListController.keyword" ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }">
     </p>
 
     <ul class="contacts-list">
-        <li class="card" ng-repeat="contact in filtered = (contactListController._contacts | filter:contactListController.search)">
+        <li class="card" ng-repeat="contact in contactListController.findContacts() track by contact.id">
             <h3>
-                <robo-hash email='::contact.email' width='70' height='70'></robo-hash>
+                <robo-hash email="::contact.email" width="70" height="70"></robo-hash>
                 {{ ::contact.first_name }} <br>{{ ::contact.last_name }}
             </h3>
             <p>
@@ -22,12 +22,12 @@
 
             </p>
             <p class="footer">
-                <a href="#" ui-sref="app.contactDetail({ id:contact.id })">Detail</a>
+                <a href="#" ui-sref="app.contactDetail({ id: contact.id })">Detail</a>
             </p>
         </li>
     </ul>
 
-    <p ng-if="filtered.length == 0">
+    <p ng-if="!contactListController.hasMatches()">
         No matches.
     </p>
 </div>
