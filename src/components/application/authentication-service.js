@@ -46,7 +46,7 @@ class AuthenticationService {
     }
     
     _resolveAuthentication(token) {
-        this._http.addStaticHeader('Authorization', token);
+        //this._http.addStaticHeader('Authorization', token);
         this._authDeferred.resolve(token);
     }
 
