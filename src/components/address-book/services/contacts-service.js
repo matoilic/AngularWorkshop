@@ -33,10 +33,6 @@ class ContactsService {
         return promise.then(d => d.data);
     }
 
-    set baseUrl(url) {
-        this._baseUrl = url;
-    }
-
     _findById(contacts , contactId){
         contactId = parseInt(contactId , 10);
         return contacts.find(c => c.id === contactId);
