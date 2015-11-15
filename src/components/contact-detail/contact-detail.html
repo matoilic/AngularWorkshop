@@ -3,7 +3,7 @@
 </div>
 
 <div class="contact-detail">
-    <form name="contactForm" novalidate >
+    <form name="contactForm" novalidate ng-submit="contactDetailController.onFormSubmit($event)">
         <p>
             <label for="">Name</label><br/>
             <input type="text" name="firstName" ng-model="contactDetailController.contact.first_name" required>

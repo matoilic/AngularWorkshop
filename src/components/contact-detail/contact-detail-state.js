@@ -3,11 +3,16 @@ import template from './contact-detail.html';
 function detailRoute($stateProvider) {
     return $stateProvider
         .state('app.contactDetail', {
-            url: 'detail/:name?',
+            url: 'detail/:id?',
             views: {
                 main: {
                     template: template,
-                    controller: 'ContactDetailController as contactDetailController'
+                    controller: 'ContactDetailController as contactDetailController',
+                    resolve: {
+                        contact: ['contactsService', '$stateParams', function(contactsService, $stateParams) {
+                            return contactsService.detailContact($stateParams.id);
+                        }]
+                    }
                 }
             }
         });
