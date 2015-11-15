@@ -2,4 +2,11 @@
     <h1>
         Contacts
     </h1>
+     <p class="search-box">
+        <input type="text" placeholder="Search..." ng-model="search" />
+    </p>
+
+    <p ng-class="{ spin: (search=='spin') }">
+        Search: <strong>{{ search }}</strong>
+    </p>
 </div>
