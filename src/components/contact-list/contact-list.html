@@ -2,10 +2,10 @@
     <h1>
         Contacts
     </h1>
-     <p class="search-box">
+    <p class="search-box">
         <input type="text" placeholder="Search..." ng-model="search" />
     </p>
     <ul ng-repeat="contact in contactListController.contacts | filter:search">
-        <li>{{ contact | capitalize }}</li>
+        <li><a ui-sref="app.contactDetail({name:contact})">{{ contact |capitalize }}</a></li>
     </ul>
 </div>
