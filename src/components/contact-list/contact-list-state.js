@@ -6,7 +6,8 @@ function contactsRoute($stateProvider) {
             url: 'contact-list',
             views: {
                 main: {
-                    template: template
+                    template: template,
+                    controller: 'ContactListController as contactListController'
                 }
             }
         });

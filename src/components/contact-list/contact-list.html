@@ -5,8 +5,7 @@
      <p class="search-box">
         <input type="text" placeholder="Search..." ng-model="search" />
     </p>
-
-    <p ng-class="{ spin: (search=='spin') }">
-        Search: <strong>{{ search }}</strong>
-    </p>
+    <ul ng-repeat="contact in contactListController.contacts">
+        <li>{{ contact }}</li>
+    </ul>
 </div>
