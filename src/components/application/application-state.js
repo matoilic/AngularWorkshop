@@ -1,4 +1,4 @@
-function detailRoute($stateProvider) {
+function applicationState($stateProvider) {
     return $stateProvider
         .state('app', {
             url: '/',
@@ -6,12 +6,6 @@ function detailRoute($stateProvider) {
             views: {
                 application: {
                     template: '<ui-view name="main"></ui-view>',
-                    controller: 'ApplicationController as appController',
-                    resolve: {
-                        authToken: ['authenticationService', function(authenticationService) {
-                            return authenticationService.authenticate();
-                        }]
-                    }
                 }
             }
         });
@@ -19,5 +13,5 @@ function detailRoute($stateProvider) {
 
 export default [
     '$stateProvider',
-    detailRoute
+    applicationState
 ];
