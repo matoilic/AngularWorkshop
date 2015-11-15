@@ -1,9 +1,9 @@
 class ContactListController {
     constructor() {
         this.contacts = [
-            'Ryan Howell',
-            'Donna Murray',
-            'Jack Fernandez',
+            'ryan Howell',
+            'donna Murray',
+            'jack Fernandez',
             'Nicholas Ward',
             'Samuel Morris'
         ];
