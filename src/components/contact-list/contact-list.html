@@ -5,7 +5,21 @@
     <p class="search-box">
         <input type="text" placeholder="Search..." ng-model="search" />
     </p>
-    <ul ng-repeat="contact in contactListController.contacts | filter:search">
-        <li><a ui-sref="app.contactDetail({name:contact})">{{ contact |capitalize }}</a></li>
+    <ul class="contacts-list">
+        <li class="card" ng-repeat="contact in contactListController.contacts">
+            <h3>
+                {{ contact.first_name }} <br>{{ contact.last_name }}
+            </h3>
+            <p>
+                Phone: <br>
+                {{ contact.phone }}<br>
+                E-Mail:<br>
+                <a href="mailto:{{ contact.email }}">{{ ::contact.email }}</a>
+
+            </p>
+            <p class="footer">
+                <a href="#" ui-sref="app.contactDetail({ id: contact.id })">Detail</a>
+            </p>
+        </li>
     </ul>
 </div>

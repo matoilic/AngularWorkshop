@@ -7,12 +7,14 @@ import applicationState from './application-state';
 import httpProvider from './http-provider';
 import contactListComponent from 'components/contact-list/index';
 import contactDetailComponent from 'components/contact-detail/index';
+import addressBookComponent from 'components/address-book/index';
 
 const dependencies = [
     'ngCookies',
     welcomeComponent.name,
     contactListComponent.name,
-    contactDetailComponent.name
+    contactDetailComponent.name,
+    addressBookComponent.name
 ];
 
 export default angular
