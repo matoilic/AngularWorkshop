@@ -4,10 +4,10 @@
         <button ui-sref="app.contactDetail">New</button>
     </h1>
     <p class="search-box">
-        <input type="text" placeholder="Search..." ng-model="search" />
+        <input type="text" placeholder="Search..." ng-model="contactListController.search" />
     </p>
     <ul class="contacts-list">
-        <li class="card" ng-repeat="contact in contactListController.contacts">
+        <li class="card" ng-repeat="contact in contactListController.contacts | filter:contactListController.search">
             <h3>
                 {{ contact.first_name }} <br>{{ contact.last_name }}
             </h3>
