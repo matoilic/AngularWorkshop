@@ -17,7 +17,7 @@ class ContactsService {
         return this._q.when(this._contacts);
     }
 
-    detailContact(contactId){
+    detailContact(contactId) {
         return this.fetchContacts().then((contacts) => this._findById(contacts , contactId));
     }
 
@@ -33,7 +33,7 @@ class ContactsService {
         return promise.then(d => d.data);
     }
 
-    _findById(contacts , contactId){
+    _findById(contacts , contactId) {
         contactId = parseInt(contactId , 10);
         return contacts.find(c => c.id === contactId);
     }

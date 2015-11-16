@@ -8,11 +8,15 @@ class ContactListController {
     }
 
     _buildIndex(contacts) {
-        let fields = Object.keys(contacts[0]);
+        if(contacts.length) {
+            let fields = Object.keys(contacts[0]);
 
-        contacts.forEach((contact) => {
-            this._index[contact.id] = fields.map(field => contact[field] && contact[field].toString().toLowerCase()).join(' ');
-        });
+            contacts.forEach((contact) => {
+                this._index[contact.id] = fields.map(field => contact[field] && contact[field].toString().toLowerCase()).join(' ');
+            });
+        } else {
+            this._index = {};
+        }
     }
 
     _searchIndex(contacts, keyword) {
