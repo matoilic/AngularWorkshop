@@ -1,14 +1,17 @@
+var protractorBase = __dirname + '/node_modules/protractor/';
+var webdriverVersions = require(protractorBase + 'config.json').webdriverVersions;
+
 exports.config = {
-  capabilities: {
-    'browserName': 'chrome'
-  },
-  baseUrl: 'http://localhost:8088/',
-  seleniumAddress: 'http://localhost:4444/wd/hub',
-
-  framework: 'jasmine',
-
-  jasmineNodeOpts: {
-    defaultTimeoutInterval: 30000
-  }
-
+    multiCapabilities: [{
+        browserName: 'chrome',
+        chromeOptions: {
+            args: ['no-sandbox']
+        }
+    }],
+    baseUrl: 'http://localhost:8088/',
+    seleniumServerJar: protractorBase + 'selenium/selenium-server-standalone-' + webdriverVersions.selenium + '.jar',
+    framework: 'jasmine2',
+    jasmineNodeOpts: {
+        defaultTimeoutInterval: 30000
+    }
 };

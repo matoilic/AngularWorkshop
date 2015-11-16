@@ -3,12 +3,21 @@
 
 describe('Navigating from list do detail', function() {
     beforeEach(function () {
+        var EC = protractor.ExpectedConditions;
+        var overlay = element(by.css('.vex'));
+
+        browser.manage().deleteAllCookies();
+
         browser.get('/');
-        /*
-         * Cheating here by adding hard-coded cookie for authentication.
-         * Should be solved with a mocked REST backend... 
-         */
-        browser.manage().addCookie('authToken', '76JKPDd3p7L9OJkIFSFII3mqrrM2Ix7Q8nWvZHPxARSngQAblYzi6gVH5T69k5NV');
+
+        browser.waitForAngular();
+        browser.wait(EC.presenceOf(overlay), 10000);
+
+        element(by.css('input[name="email"]')).sendKeys('test@test.com');
+        element(by.css('input[name="password"]')).sendKeys('test');
+        element(by.css('button[type="submit"]')).click();
+
+        browser.wait(EC.not(EC.presenceOf(overlay)), 10000);
     });
 
     it('should have detail button ', function() {
@@ -17,7 +26,6 @@ describe('Navigating from list do detail', function() {
 
         var btn = element(by.css('li.card:first-child .footer a'));
         expect(btn).not.toBe(undefined);
-
     });
 
 
@@ -31,7 +39,6 @@ describe('Navigating from list do detail', function() {
         });
 
         expect(browser.getCurrentUrl()).toContain('/detail/');
-
     });
 
     it('should filter correctly when searching for "john"',function(){
