@@ -1,4 +1,10 @@
+var fs = require('fs');
+
 var protractorBase = __dirname + '/node_modules/protractor/';
+if(!fs.existsSync(protractorBase)) {
+    protractorBase = __dirname + '/node_modules/gulp-protractor/node_modules/protractor/';
+}
+
 var webdriverVersions = require(protractorBase + 'config.json').webdriverVersions;
 
 exports.config = {
