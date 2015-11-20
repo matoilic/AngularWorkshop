@@ -30,7 +30,13 @@ class ContactsService {
             promise = this._http.post('/Contacts', contact);
         }
         
-        return promise.then(d => d.data);
+        return promise.then(response => {
+            if(!contact.id) {
+                this._contacts.unshift(response.data);
+            }
+
+            return contact;
+        });
     }
 
     _findById(contacts , contactId) {
