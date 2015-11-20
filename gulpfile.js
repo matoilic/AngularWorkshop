@@ -46,6 +46,12 @@ gulp.task('compile-stylesheets', function() {
         .pipe(gulp.dest('build/stylesheets'));
 });
 
+gulp.task('copy-static', function() {
+    return gulp
+        .src('src/images/**/*.*')
+        .pipe(gulp.dest('build/images'));
+});
+
 gulp.task('webdriver-update', function(done) {
     var browsers = ['chrome'];
 
@@ -78,4 +84,4 @@ function ServerTask(){
     testWebServer = gulp.src(__dirname).pipe(server());
 }
 
-gulp.task('default', ['compile-stylesheets', 'connect']);
+gulp.task('default', ['compile-stylesheets', 'copy-static', 'connect']);
