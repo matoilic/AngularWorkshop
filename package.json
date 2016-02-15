@@ -38,6 +38,7 @@
     "angular-resource": "^1.4.0",
     "angular-ui-router": "^0.2.15",
     "jquery": "^2.1.4",
+    "linkurious": "^1.4.0",
     "normalize.css": "^3.0.3",
     "vex-js": "^2.3.2"
   }

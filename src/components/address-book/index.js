@@ -3,6 +3,8 @@ import ngResource from 'angular-resource';
 import roboHashDirective from './directives/robo-hash-directive'
 import ContactsService from './services/contacts-service'
 import RoboHashController from './directives/robo-hash-controller';
+import networkGraphDirective from './directives/network-graph-directive';
+import NetworkGraphDelegate from './directives/network-graph-delegate';
 
 const dependencies = [
     ngResource
@@ -13,3 +15,5 @@ export default angular
     .directive('roboHash', roboHashDirective)
     .service('contactsService', ContactsService)
     .controller('RoboHashController', RoboHashController)
+    .directive('networkGraph', networkGraphDirective)
+    .service('networkGraphDelegate', NetworkGraphDelegate)

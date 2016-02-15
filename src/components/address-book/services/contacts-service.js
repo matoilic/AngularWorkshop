@@ -43,6 +43,43 @@ class ContactsService {
         contactId = parseInt(contactId , 10);
         return contacts.find(c => c.id === contactId);
     }
+
+    fetchNetworkGraph() {
+        return this.fetchContacts()
+            .then(this._graphFromContacts)
+    }
+
+    _graphFromContacts(contacts, numEdges) {
+        let graph = {
+            nodes: [],
+            edges: []
+        };
+        if (!numEdges) {
+            numEdges = contacts.length * 2;
+        }
+        // Generate a random graph:
+        for (let i = 0; i < contacts.length; i++)
+            graph.nodes.push({
+                id: 'n' + i,
+                label: contacts[i].first_name + ' ' + contacts[i].last_name,
+                x: Math.random(),
+                y: Math.random(),
+                size: Math.random(),
+                color: '#666'
+            });
+
+        for (let i = 0; i < numEdges; i++)
+            graph.edges.push({
+                id: 'e' + i,
+                source: 'n' + (Math.random() * contacts.length | 0),
+                target: 'n' + (Math.random() * contacts.length | 0),
+                size: Math.random(),
+                color: '#ccc'
+            });
+
+        return graph;
+
+    }
 }
 
 export default [
