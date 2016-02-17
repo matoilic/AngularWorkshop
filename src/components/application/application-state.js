@@ -6,12 +6,7 @@ function detailRoute($stateProvider) {
             views: {
                 application: {
                     template: '<ui-view name="main"></ui-view>',
-                    controller: 'ApplicationController as appController',
-                    resolve: {
-                        authToken: ['authenticationService', function(authenticationService) {
-                            return authenticationService.authenticate();
-                        }]
-                    }
+                    controller: 'ApplicationController as appController'
                 }
             }
         });
