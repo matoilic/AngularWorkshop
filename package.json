@@ -29,12 +29,12 @@
     "webpack-hot-middleware": "^2.4.1"
   },
   "dependencies": {
-    "angular": "^1.4.0",
-    "angular-cookies": "^1.4.7",
-    "angular-resource": "^1.4.0",
-    "angular-ui-router": "^0.2.15",
-    "jquery": "^2.1.4",
-    "normalize.css": "^3.0.3",
-    "vex-js": "^2.3.2"
+    "angular": "~1.4.0",
+    "angular-cookies": "~1.4.7",
+    "angular-messages": "~1.4.9",
+    "angular-resource": "~1.4.0",
+    "angular-ui-router": "~0.2.15",
+    "angular-visor": "~0.1.2",
+    "normalize.css": "^3.0.3"
   }
 }

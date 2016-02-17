@@ -1,0 +1,29 @@
+<h1>Login</h1>
+<form name="loginStateController.form" ng-submit="loginStateController.onSubmit()" novalidate>
+    <p>
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email" ng-model="loginStateController.credentials.email" required>
+    </p>
+
+    <div ng-messages="loginStateController.form.email.$error" ng-show="loginStateController.form.$submitted" role="alert">
+        <p ng-message="required, email">Please enter a valid email address.</p>
+    </div>
+
+    <p>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password" ng-model="loginStateController.credentials.password" required>
+    </p>
+
+    <div ng-messages="loginStateController.form.password.$error" ng-show="loginStateController.form.$submitted" role="alert">
+        <p ng-message="required">Please enter your password.</p>
+    </div>
+
+    <div ng-messages="loginStateController.form.$error" ng-show="loginStateController.form.$submitted" role="alert">
+        <p ng-message="wrongCredentials">Wrong email or password supplied.</p>
+    </div>
+
+    <p>
+        <button type="submit" ng-hide="loginStateController.loading">Login</button>
+        <span ng-show="loginStateController.loading">Login in&hellip;</span>
+    </p>
+</form>
