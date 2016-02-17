@@ -1,10 +1,9 @@
 class ApplicationController {
-    constructor(authToken) {
+    constructor() {
 
     }
 }
 
 export default [
-    'authToken',
     ApplicationController
 ];
