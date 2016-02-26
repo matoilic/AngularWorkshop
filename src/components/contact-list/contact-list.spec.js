@@ -1,23 +1,20 @@
 'use strict';
 
-
 describe('Navigating from list do detail', function() {
     beforeEach(function () {
-        var EC = protractor.ExpectedConditions;
-        var overlay = element(by.css('.vex'));
-
         browser.manage().deleteAllCookies();
 
-        browser.get('/');
+        browser.get('/#/login');
+        
+        var EC = protractor.ExpectedConditions;
 
         browser.waitForAngular();
-        browser.wait(EC.presenceOf(overlay), 10000);
 
         element(by.css('input[name="email"]')).sendKeys('test@test.com');
         element(by.css('input[name="password"]')).sendKeys('test');
         element(by.css('button[type="submit"]')).click();
 
-        browser.wait(EC.not(EC.presenceOf(overlay)), 10000);
+        browser.waitForAngular();
     });
 
     it('should have detail button ', function() {
@@ -43,12 +40,12 @@ describe('Navigating from list do detail', function() {
 
     it('should filter correctly when searching for "john"',function(){
         browser.get('#/contact-list');
-        element(by.model('contactListController.search')).sendKeys('John');
+        element(by.model('contactListController.keyword')).sendKeys('John');
         expect(browser.getCurrentUrl()).toContain('#/contact-list');
 
         browser.waitForAngular();
         var contacts = element.all(by.css('ul.contacts-list li')) ;
 
-        expect(contacts.count()).toBe(1);
+        expect(contacts.count()).toBe(2);
     });
 });
