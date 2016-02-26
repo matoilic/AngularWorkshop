@@ -40,7 +40,7 @@ describe('Navigating from list do detail', function() {
 
     it('should filter correctly when searching for "john"',function(){
         browser.get('#/contact-list');
-        element(by.model('contactListController.keyword')).sendKeys('John');
+        element(by.model('contactListController.search')).sendKeys('John');
         expect(browser.getCurrentUrl()).toContain('#/contact-list');
 
         browser.waitForAngular();
