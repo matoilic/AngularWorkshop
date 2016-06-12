@@ -17,7 +17,7 @@ function applicationConfig($locationProvider, $urlRouterProvider, $httpProvider,
      */
     $urlRouterProvider.otherwise('/welcome');
 
-    httpProvider.setBaseUrl('https://nameless-sierra-8010.herokuapp.com/api/');
+    httpProvider.setBaseUrl('http://127.0.0.1:3000/api/');
 }
 
 export default [
