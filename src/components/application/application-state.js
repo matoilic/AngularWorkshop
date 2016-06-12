@@ -1,3 +1,5 @@
+import template from './application.html';
+
 function detailRoute($stateProvider) {
     return $stateProvider
         .state('app', {
@@ -5,8 +7,8 @@ function detailRoute($stateProvider) {
             abstract: true,
             views: {
                 application: {
-                    template: '<ui-view name="main"></ui-view>',
-                    controller: 'ApplicationController as appController'
+                    controller: 'ApplicationController as appController',
+                    template
                 }
             }
         });

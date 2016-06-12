@@ -1,12 +1,11 @@
-import authenticationDialog from './authentication-dialog.html';
-
 const COOKIE_NAME = 'authToken';
 
 class AuthenticationService {
-    constructor(http, $cookies) {
-
-        this._cookies = $cookies;
+    constructor(http, $cookies, visor, $q) {
         this._http = http;
+        this._cookies = $cookies;
+        this._visor = visor;
+        this._q = $q;
     }
 
     authenticate(email, password) {
@@ -27,10 +26,25 @@ class AuthenticationService {
             .post('/Users/login', {email, password})
             .then((response) => response.data.id);
     }
+
+    isAuthenticated() {
+        return this._visor.isAuthenticated();
+    }
+
+    logout() {
+        this._q
+            .when()
+            .then(() => {
+                this._cookies.remove(COOKIE_NAME);
+                this._visor.setUnauthenticated();
+            });
+    }
 }
 
 export default [
     'http',
     '$cookies',
+    'visor',
+    '$q',
     AuthenticationService
 ]

@@ -1,0 +1,6 @@
+<div>
+    <p ng-if="appController.authenticated">
+        <a href="#" ng-click="appController.logout($event)">Logout</a>
+    </p>
+    <ui-view name="main"></ui-view>
+</div>
