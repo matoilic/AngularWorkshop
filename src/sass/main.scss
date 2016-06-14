@@ -33,6 +33,11 @@ a.button {
     display: inline-block;
     padding: 5px 15px;
     font-weight: 300;
+
+    &:disabled,
+    &.disabled {
+        opacity: 0.5;
+    }
 }
 
 h1 button {

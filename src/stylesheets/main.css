@@ -31,6 +31,13 @@ a.button {
     font-weight: 300;
 }
 
+
+input[type="submit"]:disabled,
+button:disabled,
+a.button.disbled {
+    opacity: 0.5;
+}
+
 h1 button {
     vertical-align: middle;
     font-size: 1rem;
